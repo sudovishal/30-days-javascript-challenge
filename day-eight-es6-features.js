@@ -44,6 +44,7 @@ console.log(multiply(4,3));
 console.log(multiply(4));
 
 // Activity 5
+https://blog.webdevsimplified.com/2021-02/javascript-enhanced-object-literals/
 // Task 8: Enhanced object literals
 const name = 'Vincent';
 const age = 22;
