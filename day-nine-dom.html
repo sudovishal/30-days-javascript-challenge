@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Day Nine</title>
+</head>
+<style>
+    .highlight {
+        background-color: blue;
+        font-weight: bold;
+    }
+
+    .myImage {
+        width: 100px;
+        height: auto;
+        display: block;
+        /* This allows margin auto to work */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #hoverElement {
+        padding: 20px;
+        background-color: teal;
+        display: inline-block;
+        transition: all 0.3s ease;
+    }
+</style>
+
+<body>
+    <!-- Activity 1 -->
+    <h1 id="title">This is the Challenge Number Nine</h1>
+    <button onclick="changeTextContent()">Change Text Content</button>
+    <p class="paragraph" style="background-color: red;">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Architecto, consectetur.</p>
+    <button onclick="changeBackgroundColor()">Change Paragraph BG Color</button>
+
+    <!-- Activity 2 -->
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eius sed omnis cupiditate rem quibusdam temporibus sapiente maiores cumque? Incidunt, laudantium!</div>
+
+    <ul id="myList"></ul>
+    <br><br>
+
+    <!-- Activity 3 -->
+    <div id="container">
+        <h3>Activity 3 Removing Elements</h3>
+        <p id="paragraph1">This is the first paragraph.</p>
+        <p id="paragraph2">This is the second paragraph.</p>
+        <p id="paragraph3">This is the third paragraph.</p>
+    </div>
+    <button onclick="removeElement()">Remove Second Paragraph</button>
+    <button onclick="removeLastChild()" style="margin-bottom: 20px;">Remove Last Child</button>
+    <br><br>
+
+    <!-- Activity 4 -->
+    <p id="myParagraph">This is a paragraph that we'll modify.</p>
+    <button onclick="toggleHighlight()">Toggle Highlight</button>
+
+    <img id="myImage" src="anime-girl.jpg" alt="A Hot Anime Girl" width="200">
+    <button onclick="changeImageSrc()">Change Image Source</button>
+
+    <!-- Activity 5 -->
+    <button id="changeTextBtn">Change Text</button>
+    <p id="targetParagraph">This is the original text.</p>
+
+    <div id="hoverElement">Hover over me!</div>
+</body>
+<script>
+    // Activity 1
+    function changeTextContent() {
+        const titleElement = document.getElementById('title');
+        titleElement.textContent = 'Never gonna give you up, never gonna let you down';
+    }
+    function changeBackgroundColor() {
+        const paragraphElement = document.querySelector('.paragraph');
+        paragraphElement.style.backgroundColor = 'lightblue';
+
+
+    }
+    // Activity 2
+    const newDiv = document.createElement('div');
+    newDiv.textContent = 'This is a new div element';
+
+    document.body.append(newDiv);
+
+    const myList = document.getElementById('myList');
+    function addListItem(text) {
+        const newListItem = document.createElement('li');
+        newListItem.textContent = text;
+        myList.appendChild(newListItem);
+    }
+    addListItem("First Item")
+    addListItem("Second Item")
+    addListItem("Third Item")
+
+    // Activity 3
+    function removeElement() {
+        const elementToRemove = document.getElementById('paragraph1')
+        if (elementToRemove) elementToRemove.remove();
+    }
+
+    function removeLastChild() {
+        const container = document.getElementById('container')
+        if (container && container.lastElementChild) container.removeChild(container.lastElementChild)
+    }
+
+    // Activity 4
+
+    function changeImageSrc() {
+        const img = document.getElementById('myImage');
+        img.src = 'bikini-girl.jpg';
+    }
+
+    function toggleHighlight() {
+        const paragraph = document.getElementById('myParagraph');
+        paragraph.classList.toggle('highlight');
+    }
+// Activty 5
+    document.getElementById('changeTextBtn').addEventListener('click', function () {
+        const paragraph = document.getElementById('targetParagraph');
+        paragraph.textContent = "The text has been changed!";
+    });
+
+    const hoverElement = document.getElementById('hoverElement');
+        
+        hoverElement.addEventListener('mouseover', function() {
+            this.style.color = 'red';
+            // this.style.backgroundColor = '#f0f0f0';
+        });
+
+        hoverElement.addEventListener('mouseout', function() {
+            this.style.color = '';
+            this.style.backgroundColor = '';
+        })
+</script>
+
+</html>
